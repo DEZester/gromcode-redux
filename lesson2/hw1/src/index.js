@@ -9,3 +9,5 @@ store.subscribe(() => {
 });
 
 console.log(store.getState());
+store.dispatch(deleteUser(2));
+console.log(store.getState());

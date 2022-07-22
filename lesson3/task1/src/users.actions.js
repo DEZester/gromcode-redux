@@ -18,7 +18,7 @@ export const deleteUser = userId => {
     },
   };
 };
-export const updateUser = ({ userId, userData }) => {
+export const updateUser = (userId, userData) => {
   return {
     type: UPDATE_USER,
     payload: {

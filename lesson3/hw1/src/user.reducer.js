@@ -1,17 +1,16 @@
-import { SET_USER_DATA, REMOVE_USER_DATA } from './user.actions';
+import { SET_USER, REMOVE_USER } from './user.actions';
 
 const userReducer = (state = null, action) => {
   switch (action.type) {
     default:
       return state;
-    case SET_USER_DATA:
-      return {
-        ...state,
-        state: action.payload.userData,
-      };
+    case SET_USER: {
+      return action.payload.userData;
+    }
 
-    case REMOVE_USER_DATA:
+    case REMOVE_USER: {
       return null;
+    }
   }
 };
 

@@ -1,9 +1,9 @@
-export const SET_USER_DATA = 'USERDATA/SET';
-export const REMOVE_USER_DATA = 'USERDATA/REMOVE';
+export const SET_USER = 'USERDATA/SET';
+export const REMOVE_USER = 'USERDATA/REMOVE';
 
 export const setUser = userData => {
   return {
-    type: SET_USER_DATA,
+    type: SET_USER,
     payload: {
       userData,
     },
@@ -12,6 +12,6 @@ export const setUser = userData => {
 
 export const removeUser = () => {
   return {
-    type: REMOVE_USER_DATA,
+    type: REMOVE_USER,
   };
 };

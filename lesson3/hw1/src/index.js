@@ -1,5 +1,5 @@
 import store from './store';
-import setLanguage from './language.actions';
+import { setLanguage } from './language.actions';
 import { addProduct, removeProduct } from './cart.actions';
 import { setUserData, removeUserData } from './user.actions';
 console.log(store.getState());

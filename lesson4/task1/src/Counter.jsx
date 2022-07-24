@@ -8,7 +8,9 @@ const Counter = ({ counter, incr, decr, res }) => {
       <button className="counter__button" onClick={decr}>
         -
       </button>
-      <span className="counter__value">{counter}</span>
+      <span className="counter__value" onClick={res}>
+        {counter}
+      </span>
       <button className="counter__button" onClick={incr}>
         +
       </button>

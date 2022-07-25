@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Pagination from './Pagination';
 import User from './User';
+import * as paginationActions from './users.actions';
+import { connect } from 'react-redux';
 
-const UsersList = ({ users }) => {
-  const [currentPage, setCurPage] = useState(1);
+const UsersList = ({ goNext, goPrev, currentPage, users }) => {
   const itemsPerPage = 3;
-  const totalItems = users.length;
-
-  const goPrev = () => {
-    return setCurPage(currentPage - 1);
-  };
-
-  const goNext = () => {
-    return setCurPage(currentPage + 1);
-  };
 
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -24,7 +16,7 @@ const UsersList = ({ users }) => {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        totalItems={totalItems}
+        totalItems={users.length}
         goPrev={goPrev}
         goNext={goNext}
       />
@@ -37,4 +29,16 @@ const UsersList = ({ users }) => {
   );
 };
 
-export default UsersList;
+const mapState = state => ({
+  users: state.users.usersList,
+  currentPage: state.users.currentPage,
+});
+
+const mapDispatch = {
+  goNext: paginationActions.goNext,
+  goPrev: paginationActions.goPrev,
+};
+
+const connector = connect(mapState, mapDispatch);
+const connectorUsers = connector(UsersList);
+export default connectorUsers;

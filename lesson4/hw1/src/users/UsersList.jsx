@@ -6,15 +6,15 @@ import { connect } from 'react-redux';
 
 const UsersList = ({ goNext, goPrev, currentPage, users }) => {
   const itemsPerPage = 3;
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  const newCurrentPage = currentPage + 1;
+  const startIndex = itemsPerPage * currentPage;
+  const endIndex = itemsPerPage * newCurrentPage;
   const usersToRender = users.slice(startIndex, endIndex);
 
   return (
     <div>
       <Pagination
-        currentPage={currentPage}
+        currentPage={newCurrentPage}
         itemsPerPage={itemsPerPage}
         totalItems={users.length}
         goPrev={goPrev}

@@ -1,27 +1,17 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import UserInfo from './users/UserInfo';
+import SearchField from './users/SearchField';
+import store from './store';
 
 const App = () => {
   return (
-    <div class="page">
-      <div class="user">
-        <img
-          alt="User Avatar"
-          src="https://avatars0.githubusercontent.com/u/10639145?v=4"
-          class="user__avatar"
-        />
-        <div class="user__info">
-          <span class="user__name">Apple</span>
-          <span class="user__location">Cupertino, CA</span>
-        </div>
+    <Provider store={store}>
+      <div className="page">
+        <UserInfo />
+        <SearchField />
       </div>
-
-      <span class="spinner"></span>
-
-      <div class="name-form">
-        <input type="text" class="name-form__input" />
-        <button class="name-form__btn btn">Show</button>
-      </div>
-    </div>
+    </Provider>
   );
 };
 

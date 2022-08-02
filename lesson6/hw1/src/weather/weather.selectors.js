@@ -1,3 +1,3 @@
-// export const weatherSelectors = state => {
-//   return state.weather.weatherDataList;
-// };
+export const weatherSelectors = state => {
+  return state.weather.weatherDataList;
+};

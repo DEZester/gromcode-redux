@@ -1,13 +1,13 @@
-import { combineReducers, createStore } from 'redux';
+import { combineReducers, createStore, compose, applyMiddleware } from 'redux';
 import weatherReducer from './weather/weather.reducer';
+import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
   weather: weatherReducer,
 });
 
-const store = createStore(
-  reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)));
 
 export default store;

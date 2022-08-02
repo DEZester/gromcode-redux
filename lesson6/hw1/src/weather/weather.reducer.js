@@ -1,4 +1,4 @@
-import { GET_WEATHER_DATA, WEATHER_DATA } from './weather.actions';
+import { WEATHER_DATA } from './weather.actions';
 
 const initialData = {
   weatherDataList: [],
@@ -12,12 +12,6 @@ const weatherReducer = (state = initialData, action) => {
       return {
         ...state,
         weatherDataList: action.payload.weatherData,
-      };
-    }
-    case GET_WEATHER_DATA: {
-      return {
-        ...state,
-        weatherDataList: weatherDataList.concat([1, 2, 3]),
       };
     }
   }

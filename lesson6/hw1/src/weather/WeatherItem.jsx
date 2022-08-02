@@ -1,10 +1,10 @@
 import React from 'react';
 
-const WeatherItem = () => {
+const WeatherItem = ({ name, temperature }) => {
   return (
     <li className="city">
-      <span className="city__name">East Gerhardshire</span>
-      <span className="city__temperature">23 F</span>
+      <span className="city__name">{name}</span>
+      <span className="city__temperature">{temperature}</span>
     </li>
   );
 };

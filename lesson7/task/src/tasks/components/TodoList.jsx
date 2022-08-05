@@ -3,7 +3,7 @@ import TasksList from './TasksList.jsx';
 import { connect } from 'react-redux';
 import * as tasksActions from '../tasks.actions';
 import CreateTaskInput from './CreateTaskInput.jsx';
-import { tasksListSelector } from '../tasks.selectors.js';
+import { sortedTasksListSelector } from '../tasks.selectors.js';
 
 class TodoList extends Component {
   componentDidMount() {
@@ -29,11 +29,14 @@ class TodoList extends Component {
 
 const mapDispatch = {
   getTasksList: tasksActions.getTasksList,
+  updateTask: tasksActions.updateTask,
+  deleteTask: tasksActions.deleteTask,
+  createTask: tasksActions.createTask,
 };
 
 const mapState = state => {
   return {
-    tasks: tasksListSelector(state),
+    tasks: sortedTasksListSelector(state),
   };
 };
 

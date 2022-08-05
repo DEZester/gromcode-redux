@@ -1,5 +1,22 @@
-import * as Something from './tasksGateway';
+import * as tasksGateway from './tasksGateway';
 
-export const CREATE_TASK = 'CREATE_TASK';
-export const DELETE_TASK = 'DELETE_TASK';
-export const UPDATE_TASK = 'UPDATE_TASK';
+export const TASKS_LIST_RECEIVED = 'TASKS_LIST_RECEIVED';
+
+export const tasksListRecieved = tasksList => {
+  const action = {
+    type: TASKS_LIST_RECEIVED,
+    payload: {
+      tasksList,
+    },
+  };
+
+  return action;
+};
+
+export const getTasksList = () => {
+  const thunkAction = function (dispatch) {
+    tasksGateway.fetchTasksList().then(tasksList => dispatch(tasksListRecieved(tasksList)));
+  };
+
+  return thunkAction;
+};

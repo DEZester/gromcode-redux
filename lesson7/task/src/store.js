@@ -3,7 +3,7 @@ import tasksReducer from './tasks/tasks.reducer';
 import thunk from 'redux-thunk';
 
 const reducer = combineReducers({
-  tasksList: tasksReducer,
+  tasks: tasksReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

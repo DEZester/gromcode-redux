@@ -39,7 +39,7 @@ class TasksList extends React.Component {
 
     const { done, text } = this.state.tasks.find(task => task.id === id);
     const upTask = {
-      ...text,
+      text,
       done: !done,
     };
 
